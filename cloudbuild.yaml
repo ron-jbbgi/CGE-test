@@ -11,7 +11,7 @@ steps:
       gcloud secrets versions access latest --secret=TEST_PUB > ~/root/.ssh/id_rsa.pub && \\
       chmod 600 ~/root/.ssh/id_rsa.pub && \\
       set -x && \\
-      gcloud compute ssh ronnjoshua@test-instance --ssh-key-file=~/root/.ssh/id_rsa --project=business-books-global --zone=us-central1-a --command='sudo sh -c "cd ~/CGE-Test && git fetch && git reset --hard HEAD && git merge '@{u}' && git pull origin main "'
+      gcloud compute ssh ronnjoshua@test-instance --ssh-key-file=~/root/.ssh/id_rsa --project=business-books-global --zone=us-central1-a --command='sudo sh -c "cd /home/ron/CGE-Test && git fetch && git reset --hard HEAD && git merge '@{u}' && git pull origin main "'
   - name: 'gcr.io/cloud-builders/gcloud'
     id: Reboot VM
     entrypoint: bash
